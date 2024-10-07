@@ -35,12 +35,26 @@ def dice():
         print(f"Your number is {(d100_dice) * (10)}")
     else:
         print("Hmm, that's not a dice that i know of...")
-        
-choice = input("Type 1 to roll a dice, type 2 to manage your levels.")
+
+def health():
+    max_health = int(input("What is the max health your character can have?"))
+    current_health = int(input("What is your current health?"))
+    health_change = input("Would you like to add or remove health? Type - to remove health, or type + to add health.")
+    if health_change == "+":
+        health_add = int(input("How much health would you like to add?"))
+    elif health_change == "-":
+        health_subtract = int(input("How much health would you like to remove?"))
+    else:
+        print("Invalid request.")
+    if health_change == "+":
+        if (health_add) < (max_health)
+
+choice = input("Type 1 to roll a dice, type 2 to manage your levels, or type 3 to manage your health/hp.")
 
 if choice == "1":
     dice()
 elif choice == "2":
     levels()
-    
+elif choice == "3":
+    health()
 print("Please refresh the page to start again.")
