@@ -1,0 +1,72 @@
+import random
+
+run = True
+
+def levels():
+    run = False
+    current_level = int(input("What is your current level?"))
+    current_xp = int(input("How much xp do you have?"))
+    add_xp = int(input("How much xp would you like to add?"))
+    if (current_xp) + (add_xp) >= 300:
+        new_level = (current_level) + 1
+        new_xp = (current_xp) + (add_xp) - 300
+        print(f"Congratulations, you have leveled up!. You are level {new_level}, and have {new_xp} xp.")
+    elif current_xp + (add_xp) < 300:
+        print(f"Your level is still {current_level}, with {(current_xp) + (add_xp)} xp.")
+    run = True
+def dice():
+    run = False
+    dice_choice = input("What kind of dice would you like to roll?")
+    if dice_choice == "d4":
+        d4_dice = random.randint(1 , 4)
+        print(f"Your number is {d4_dice}")
+    elif dice_choice == "d6":
+        d6_dice = random.randint(1 , 6)
+        print(f"Your number is {d6_dice}")
+    elif dice_choice == "d8":
+        d8_dice = random.randint(1 , 8)
+        print(f"Your number is {d8_dice}")
+    elif dice_choice == "d10":
+        d10_dice = random.randint(1 , 10)
+        print(f"Your number is {d10_dice}")
+    elif dice_choice == "d12":
+        d12_dice = random.randint(1 , 12)
+        print(f"Your number is {d12_dice}")
+    elif dice_choice == "d20":
+        d20_dice = random.randint(1 , 20)
+        print(f"Your number is {d20_dice}")
+    elif dice_choice == "d100":
+        d100_dice = random.randint(1 , 10)
+        print(f"Your number is {(d100_dice) * (10)}")
+    else:
+        print("Hmm, that's not a dice that i know of...")
+    run = True
+
+def health():
+    run = False
+    max_health = int(input("What is the max amount of health your character can have?"))
+    current_health = int(input("How much health do you currently have?"))
+    health_change = input("Would you like to add or remove health? Type + to add, or type - to remove.")
+    if health_change == "+":
+        health_add = int(input("How much health would you like to add?"))
+        if ((max_health) - (current_health)) >= (health_add):
+            print(f"You now have {(current_health) + (health_add)} health.")
+    elif health_change == "-":
+        health_remove = int(input("How much health would you like to remove?"))
+        if ((current_health) - (health_remove)) > 0:
+            print(f"Your health is now {((current_health) - (health_remove))}")
+        elif ((current_health) - (health_remove)) <= 0:
+            print(f"Oof, sorry, you're dead! But if you care, you have {((current_health) - (health_remove))}")
+    else:
+        print("Hmm, I don't understand...")
+    run = True
+
+if run == True:
+    choice = input("Type 1 to roll a dice, type 2 to manage your levels, or type 3 to manage your health.")
+    
+    if choice == "1":
+        dice()
+    elif choice == "2":
+        levels()
+    elif choice == "3":
+        health()
